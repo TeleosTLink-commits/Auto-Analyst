@@ -32,6 +32,79 @@ export default function AdminDashboard() {
     completed: cases.filter(c => c.status === 'completed').length,
   };
 
+  const handleStartReview = async (caseItem: Case) => {
+    try {
+      const response = await fetch(`/api/cases/${caseItem.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'in-review' }),
+      });
+      if (response.ok) {
+        await fetchCases();
+        alert('Case status updated to "In Review"');
+      }
+    } catch (error) {
+      console.error('Error updating case:', error);
+      alert('Failed to update case status');
+    }
+  };
+
+  const handleGenerateReport = (caseItem: Case) => {
+    // For now, create a simple text report
+    const reportContent = `
+AUTO AUDITOR REPORT
+Case #: ${caseItem.caseNumber}
+Date: ${new Date(caseItem.createdAt).toLocaleDateString()}
+
+CUSTOMER INFORMATION
+Name: ${caseItem.customerName}
+Email: ${caseItem.customerEmail}
+Phone: ${caseItem.customerPhone}
+
+SERVICE TYPE: ${caseItem.serviceType.replace('-', ' ').toUpperCase()}
+
+${caseItem.serviceType === 'repair-audit' && 'vehicleInfo' in caseItem ? `
+VEHICLE INFORMATION
+Year: ${caseItem.vehicleInfo.year}
+Make: ${caseItem.vehicleInfo.make}
+Model: ${caseItem.vehicleInfo.model}
+Mileage: ${caseItem.vehicleInfo.mileage}
+
+DIAGNOSTIC INFORMATION
+Codes: ${caseItem.diagnosticCodes.join(', ')}
+Symptoms: ${caseItem.symptoms}
+
+SHOP INFORMATION
+Shop: ${caseItem.shopName}
+Location: ${caseItem.shopLocation}
+Estimated Cost: $${caseItem.estimatedCost.toFixed(2)}
+
+ANALYSIS
+[Add your professional analysis here]
+
+RECOMMENDATIONS
+[Add your recommendations here]
+` : ''}
+
+STATUS: ${caseItem.status.toUpperCase()}
+Payment Status: ${caseItem.paymentStatus}
+
+---
+Auto Auditor - Professional Vehicle Repair Analysis
+    `.trim();
+
+    // Download as text file
+    const blob = new Blob([reportContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `report-${caseItem.caseNumber}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -265,12 +338,13 @@ export default function AdminDashboard() {
               {/* Actions */}
               <div className="flex space-x-3">
                 <button
-                  onClick={() => {/* TODO: Open case editor */}}
+                  onClick={() => handleStartReview(selectedCase)}
                   className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
                 >
                   Start Review
                 </button>
                 <button
+                  onClick={() => handleGenerateReport(selectedCase)}
                   className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300"
                 >
                   Generate Report

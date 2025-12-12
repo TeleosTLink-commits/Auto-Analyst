@@ -52,7 +52,7 @@ export default function AdminDashboard() {
   const handleGenerateReport = (caseItem: Case) => {
     // For now, create a simple text report
     const reportContent = `
-AUTO AUDITOR REPORT
+AUTO ANALYST REPORT
 Case #: ${caseItem.caseNumber}
 Date: ${new Date(caseItem.createdAt).toLocaleDateString()}
 
@@ -90,7 +90,7 @@ STATUS: ${caseItem.status.toUpperCase()}
 Payment Status: ${caseItem.paymentStatus}
 
 ---
-Auto Auditor - Professional Vehicle Repair Analysis
+Auto Analyst - Professional Vehicle Repair Analysis
     `.trim();
 
     // Download as text file
@@ -112,7 +112,7 @@ Auto Auditor - Professional Vehicle Repair Analysis
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center space-x-2">
             <Shield className="h-8 w-8 text-primary-600" />
-            <span className="text-2xl font-bold text-gray-900">Auto Auditor Admin</span>
+            <span className="text-2xl font-bold text-gray-900">Auto Analyst Admin</span>
           </div>
         </div>
       </header>

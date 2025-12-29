@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Wrench, Stethoscope, Bike, Shield, DollarSign, Clock, Check, Mail, MapPin, Award, Heart } from 'lucide-react';
+import { Wrench, Stethoscope, Bike, Shield, DollarSign, Clock, Check } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -8,27 +8,24 @@ export default function Home() {
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2">
               <Shield className="h-8 w-8 text-primary-600" />
               <span className="text-2xl font-bold text-gray-900">Auto Analyst</span>
-            </div>
+            </Link>
             <div className="flex items-center space-x-6">
-              <a href="#about" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
+              <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
                 About
-              </a>
-              <a href="#services" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
-                Services
-              </a>
-              <a href="#contact" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
+              </Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl">
             Stop Overpaying for <span className="text-primary-600">Vehicle Repairs</span>
@@ -37,87 +34,19 @@ export default function Home() {
             Get an unbiased second opinion from a retired master mechanic with nearly 20 years of experience. 
             We analyze repair quotes and help you avoid unnecessary charges.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#services"
-              className="inline-flex items-center px-8 py-4 bg-primary-600 text-white text-lg font-semibold rounded-lg hover:bg-primary-700 transition shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white text-lg font-semibold rounded-lg hover:bg-primary-700 transition shadow-lg"
             >
               View Our Services
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center px-4 py-2 bg-primary-50 rounded-full mb-6">
-                <Award className="h-5 w-5 text-primary-600 mr-2" />
-                <span className="text-sm font-semibold text-primary-600">Nearly 20 Years of Experience</span>
-              </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Fighting for Honest Auto Service
-              </h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p>
-                  After spending nearly two decades as a master mechanic, I've witnessed firsthand how the auto industry 
-                  often prioritizes profit over honesty. Too many times, I watched innocent customers get pressured into 
-                  unnecessary repairs, overcharged for labor, or sold parts they didn't need.
-                </p>
-                <p>
-                  I couldn't be part of that system anymore. So I walked away from the shop floor and started Auto Analyst 
-                  with a simple mission: <strong>give customers the truth they deserve</strong>.
-                </p>
-                <p>
-                  Now, I use my expertise to level the playing field. Every repair quote I analyze, every diagnostic plan 
-                  I create, and every pre-purchase inspection I conduct is about protecting you from the tactics I used to 
-                  see every single day.
-                </p>
-                <p className="flex items-start">
-                  <MapPin className="h-5 w-5 text-primary-600 mr-2 mt-1 flex-shrink-0" />
-                  <span>Proudly serving customers nationwide from our base in <strong>Gilroy, California</strong></span>
-                </p>
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8">
-              <div className="space-y-6">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="flex items-start">
-                    <div className="bg-primary-100 rounded-lg p-3 mr-4">
-                      <Shield className="h-6 w-6 text-primary-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 mb-2">Certified Master Technician</h3>
-                      <p className="text-sm text-gray-600">ASE certified with expertise across all vehicle systems</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="flex items-start">
-                    <div className="bg-primary-100 rounded-lg p-3 mr-4">
-                      <Heart className="h-6 w-6 text-primary-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 mb-2">Customer Advocate First</h3>
-                      <p className="text-sm text-gray-600">No shop commissions. No upselling. Just honest analysis.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="flex items-start">
-                    <div className="bg-primary-100 rounded-lg p-3 mr-4">
-                      <Wrench className="h-6 w-6 text-primary-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 mb-2">Industry Insider Knowledge</h3>
-                      <p className="text-sm text-gray-600">I know the tricks because I've seen them all</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-primary-600 text-primary-600 text-lg font-semibold rounded-lg hover:bg-primary-50 transition"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
       </section>
@@ -137,7 +66,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Repair Audit */}
             <Link href="/services/repair-audit">
-              <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow cursor-pointer border-2 border-transparent hover:border-primary-500 h-full">
+              <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all cursor-pointer border-2 border-transparent hover:border-primary-500 h-full transform hover:scale-105">
                 <div className="flex justify-center mb-4">
                   <Wrench className="h-16 w-16 text-primary-600" />
                 </div>
@@ -177,7 +106,7 @@ export default function Home() {
 
             {/* Pre-Diagnosis */}
             <Link href="/services/pre-diagnosis">
-              <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow cursor-pointer border-2 border-transparent hover:border-primary-500 h-full">
+              <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all cursor-pointer border-2 border-transparent hover:border-primary-500 h-full transform hover:scale-105">
                 <div className="flex justify-center mb-4">
                   <Stethoscope className="h-16 w-16 text-primary-600" />
                 </div>
@@ -217,7 +146,7 @@ export default function Home() {
 
             {/* Bike Pre-Purchase */}
             <Link href="/services/bike-purchase">
-              <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow cursor-pointer border-2 border-transparent hover:border-primary-500 h-full">
+              <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all cursor-pointer border-2 border-transparent hover:border-primary-500 h-full transform hover:scale-105">
                 <div className="flex justify-center mb-4">
                   <Bike className="h-16 w-16 text-primary-600" />
                 </div>
@@ -297,93 +226,6 @@ export default function Home() {
               </div>
               <h3 className="font-bold text-lg mb-2">Get Report</h3>
               <p className="text-gray-600 text-sm">Receive detailed audit report in 24-48hrs</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-primary-600 to-primary-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Get In Touch
-            </h2>
-            <p className="text-xl text-primary-100">
-              Have questions? Ready to get started? Reach out today.
-            </p>
-          </div>
-          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <div className="bg-primary-100 rounded-lg p-3 mr-4">
-                        <Mail className="h-6 w-6 text-primary-600" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-gray-500 uppercase">Email</p>
-                        <a href="mailto:owner@auto-analyst.com" className="text-lg font-medium text-gray-900 hover:text-primary-600 transition">
-                          owner@auto-analyst.com
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-primary-100 rounded-lg p-3 mr-4">
-                        <MapPin className="h-6 w-6 text-primary-600" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-gray-500 uppercase">Location</p>
-                        <p className="text-lg font-medium text-gray-900">Gilroy, California</p>
-                        <p className="text-sm text-gray-600">Serving customers nationwide</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-primary-100 rounded-lg p-3 mr-4">
-                        <Clock className="h-6 w-6 text-primary-600" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-gray-500 uppercase">Response Time</p>
-                        <p className="text-lg font-medium text-gray-900">24-48 hours</p>
-                        <p className="text-sm text-gray-600">All reports delivered promptly</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Why Choose Auto Analyst?</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-primary-600 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Nearly 20 years of master technician experience</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-primary-600 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">No conflicts of interest - we don't profit from repairs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-primary-600 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Detailed, easy-to-understand reports</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-primary-600 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Fast turnaround on all analysis</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-primary-600 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Affordable pricing that pays for itself</span>
-                  </li>
-                </ul>
-                <div className="mt-6 pt-6 border-t border-gray-300">
-                  <p className="text-sm text-gray-600 italic">
-                    "I left the industry because I couldn't stand watching customers get ripped off. 
-                    Now I use my knowledge to protect you instead."
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

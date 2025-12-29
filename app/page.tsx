@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Wrench, Stethoscope, Bike, Shield, DollarSign, Clock } from 'lucide-react';
+import { Wrench, Stethoscope, Bike, Shield, DollarSign, Clock, Check } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -74,19 +74,19 @@ export default function Home() {
               </div>
               <ul className="space-y-2 text-sm text-gray-600 mb-6">
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Code vs. Part logic check
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Diagnostic proof verification
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Upsell detection
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Labor padding analysis
                 </li>
               </ul>
@@ -114,19 +114,19 @@ export default function Home() {
               </div>
               <ul className="space-y-2 text-sm text-gray-600 mb-6">
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Suspected issue identification
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Step-by-step testing plan
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Note for your mechanic
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Cost estimates
                 </li>
               </ul>
@@ -154,19 +154,19 @@ export default function Home() {
               </div>
               <ul className="space-y-2 text-sm text-gray-600 mb-6">
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Video & photo analysis
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Red flag identification
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Questions to ask seller
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">âœ“</span>
+                  <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                   Buy/negotiate/walk verdict
                 </li>
               </ul>
@@ -229,7 +229,7 @@ export default function Home() {
               Your trusted second opinion for vehicle repairs
             </p>
             <p className="text-sm text-gray-500">
-              Â© 2025 Auto Auditor. All rights reserved.
+              Ã‚Â© 2025 Auto Auditor. All rights reserved.
             </p>
           </div>
         </div>

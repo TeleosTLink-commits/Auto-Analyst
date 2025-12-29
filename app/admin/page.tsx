@@ -49,6 +49,11 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleLogout = async () => {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    window.location.href = '/admin/login';
+  };
+
   const handleGenerateReport = (caseItem: Case) => {
     // For now, create a simple text report
     const reportContent = `
@@ -110,9 +115,17 @@ Auto Analyst - Professional Vehicle Repair Analysis
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center space-x-2">
-            <Shield className="h-8 w-8 text-primary-600" />
-            <span className="text-2xl font-bold text-gray-900">Auto Analyst Admin</span>
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-2">
+              <Shield className="h-8 w-8 text-primary-600" />
+              <span className="text-2xl font-bold text-gray-900">Auto Analyst Admin</span>
+            </div>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Logout
+            </button>
           </div>
         </div>
       </header>

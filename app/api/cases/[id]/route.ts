@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminDb, collections } from '@/lib/firebase-admin';
+import { adminDb } from '@/lib/firebase-admin';
 
 export async function PATCH(
   request: NextRequest,
@@ -10,8 +10,8 @@ export async function PATCH(
     const body = await request.json();
 
     // Update case in Firestore
-    const caseRef = collections.cases.doc(id);
-    
+    const caseRef = adminDb.collection('cases').doc(id);
+
     await caseRef.update({
       ...body,
       updatedAt: new Date(),
@@ -33,9 +33,9 @@ export async function GET(
 ) {
   try {
     const { id } = params;
-    
-    const doc = await collections.cases.doc(id).get();
-    
+
+    const doc = await adminDb.collection('cases').doc(id).get();
+
     if (!doc.exists) {
       return NextResponse.json(
         { error: 'Case not found' },

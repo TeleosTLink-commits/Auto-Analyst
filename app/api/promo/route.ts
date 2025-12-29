@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminDb, collections } from '@/lib/firebase-admin';
+import { adminDb } from '@/lib/firebase-admin';
 
 // Promo codes configuration
 const PROMO_CODES = {
@@ -8,25 +8,28 @@ const PROMO_CODES = {
     maxUses: 10,
     description: 'First 10 customers free!',
   },
-};
+} as const;
+
+type PromoCodeKey = keyof typeof PROMO_CODES;
 
 export async function POST(request: NextRequest) {
   try {
     const { code } = await request.json();
+    const upperCode = code?.toUpperCase() as PromoCodeKey;
 
-    if (!code || !PROMO_CODES[code.toUpperCase()]) {
+    if (!code || !PROMO_CODES[upperCode]) {
       return NextResponse.json(
         { error: 'Invalid promo code' },
         { status: 400 }
       );
     }
 
-    const promoConfig = PROMO_CODES[code.toUpperCase()];
-    
+    const promoConfig = PROMO_CODES[upperCode];
+
     // Check how many times this code has been used
-    const promoRef = collections.db.collection('promos').doc(code.toUpperCase());
+    const promoRef = adminDb.collection('promos').doc(upperCode);
     const promoDoc = await promoRef.get();
-    
+
     let usageCount = 0;
     if (promoDoc.exists) {
       usageCount = promoDoc.data()?.usageCount || 0;
@@ -59,15 +62,16 @@ export async function POST(request: NextRequest) {
 export async function PATCH(request: NextRequest) {
   try {
     const { code } = await request.json();
+    const upperCode = code?.toUpperCase() as PromoCodeKey;
 
-    if (!code || !PROMO_CODES[code.toUpperCase()]) {
+    if (!code || !PROMO_CODES[upperCode]) {
       return NextResponse.json(
         { error: 'Invalid promo code' },
         { status: 400 }
       );
     }
 
-    const promoRef = collections.db.collection('promos').doc(code.toUpperCase());
+    const promoRef = adminDb.collection('promos').doc(upperCode);
     const promoDoc = await promoRef.get();
 
     if (promoDoc.exists) {
@@ -77,7 +81,7 @@ export async function PATCH(request: NextRequest) {
       });
     } else {
       await promoRef.set({
-        code: code.toUpperCase(),
+        code: upperCode,
         usageCount: 1,
         firstUsed: new Date(),
         lastUsed: new Date(),

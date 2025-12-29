@@ -74,19 +74,19 @@ export default function Home() {
               </div>
               <ul className="space-y-2 text-sm text-gray-600 mb-6">
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Code vs. Part logic check
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Diagnostic proof verification
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Upsell detection
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Labor padding analysis
                 </li>
               </ul>
@@ -114,19 +114,19 @@ export default function Home() {
               </div>
               <ul className="space-y-2 text-sm text-gray-600 mb-6">
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Suspected issue identification
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Step-by-step testing plan
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Note for your mechanic
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Cost estimates
                 </li>
               </ul>
@@ -154,19 +154,19 @@ export default function Home() {
               </div>
               <ul className="space-y-2 text-sm text-gray-600 mb-6">
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Video & photo analysis
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Red flag identification
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Questions to ask seller
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary-600 mr-2">✓</span>
+                  <span className="text-primary-600 mr-2">âœ“</span>
                   Buy/negotiate/walk verdict
                 </li>
               </ul>
@@ -223,13 +223,13 @@ export default function Home() {
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <Shield className="h-8 w-8 text-primary-400" />
-              <span className="text-2xl font-bold">Auto Auditor</span>
+              <span className="text-2xl font-bold">Auto Analyst</span>
             </div>
             <p className="text-gray-400 mb-4">
               Your trusted second opinion for vehicle repairs
             </p>
             <p className="text-sm text-gray-500">
-              © 2025 Auto Auditor. All rights reserved.
+              Â© 2025 Auto Auditor. All rights reserved.
             </p>
           </div>
         </div>

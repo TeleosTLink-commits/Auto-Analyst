@@ -1,18 +1,24 @@
 import Link from 'next/link';
-import { Wrench, Stethoscope, Bike, Shield, DollarSign, Clock, Check } from 'lucide-react';
+import { Shield, FileCheck, TrendingDown, Clock, ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      <header className="bg-white shadow-sm sticky top-0 z-50 border-b">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Shield className="h-8 w-8 text-primary-600" />
               <span className="text-2xl font-bold text-gray-900">Auto Analyst</span>
             </Link>
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-8">
+              <Link href="/" className="text-sm font-medium text-primary-600 border-b-2 border-primary-600">
+                Home
+              </Link>
+              <Link href="/services" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
+                Services
+              </Link>
               <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
                 About
               </Link>
@@ -25,170 +31,89 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center">
-          <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl">
-            Stop Overpaying for <span className="text-primary-600">Vehicle Repairs</span>
-          </h1>
-          <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-            Get an unbiased second opinion from a retired master mechanic with nearly 20 years of experience. 
-            We analyze repair quotes and help you avoid unnecessary charges.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white text-lg font-semibold rounded-lg hover:bg-primary-700 transition shadow-lg"
-            >
-              View Our Services
-            </a>
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-primary-600 text-primary-600 text-lg font-semibold rounded-lg hover:bg-primary-50 transition"
-            >
-              Learn More
-            </Link>
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-24">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px),
+                             repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)`
+          }}></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+              Stop Overpaying for <span className="text-primary-400">Vehicle Repairs</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+              Professional, unbiased second opinions from a retired master mechanic with nearly 20 years of experience.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white text-lg font-semibold rounded-lg hover:bg-primary-700 transition shadow-lg"
+              >
+                View Our Services
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 text-lg font-semibold rounded-lg hover:bg-gray-100 transition"
+              >
+                Get Started
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
+      {/* What We Do */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Professional Services
+              What We Do
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Choose the service that fits your needs. All reports delivered within 24-48 hours.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We provide independent analysis of vehicle repair quotes, diagnostic plans, and pre-purchase inspections 
+              to protect you from unnecessary charges and dishonest practices.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Repair Audit */}
-            <Link href="/services/repair-audit">
-              <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all cursor-pointer border-2 border-transparent hover:border-primary-500 h-full transform hover:scale-105">
-                <div className="flex justify-center mb-4">
-                  <Wrench className="h-16 w-16 text-primary-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-center text-gray-900 mb-4">
-                  Repair Audit
-                </h3>
-                <p className="text-gray-600 text-center mb-6">
-                  Already got a quote? We'll analyze it line-by-line to identify overcharges, unnecessary work, and markup schemes.
-                </p>
-                <div className="bg-primary-50 rounded-lg p-4 mb-6">
-                  <p className="text-3xl font-bold text-center text-primary-600">$39</p>
-                  <p className="text-sm text-center text-gray-600">Per Quote Analysis</p>
-                </div>
-                <ul className="space-y-3 text-sm text-gray-700 mb-6">
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Code vs. Part logic check
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Diagnostic proof verification
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Upsell detection
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Labor padding analysis
-                  </li>
-                </ul>
-                <button className="w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 transition">
-                  Get Started
-                </button>
+            <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-primary-500 transition">
+              <div className="bg-primary-100 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-6">
+                <FileCheck className="h-10 w-10 text-primary-600" />
               </div>
-            </Link>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Unbiased Analysis</h3>
+              <p className="text-gray-600 leading-relaxed">
+                No shop affiliations, no commissions, no upselling. Just honest, expert analysis you can trust.
+              </p>
+            </div>
 
-            {/* Pre-Diagnosis */}
-            <Link href="/services/pre-diagnosis">
-              <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all cursor-pointer border-2 border-transparent hover:border-primary-500 h-full transform hover:scale-105">
-                <div className="flex justify-center mb-4">
-                  <Stethoscope className="h-16 w-16 text-primary-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-center text-gray-900 mb-4">
-                  Pre-Diagnosis Roadmap
-                </h3>
-                <p className="text-gray-600 text-center mb-6">
-                  Walk into the shop armed with knowledge. We'll create a diagnostic roadmap so you can't be taken advantage of.
-                </p>
-                <div className="bg-primary-50 rounded-lg p-4 mb-6">
-                  <p className="text-3xl font-bold text-center text-primary-600">$49</p>
-                  <p className="text-sm text-center text-gray-600">Per Diagnostic Plan</p>
-                </div>
-                <ul className="space-y-3 text-sm text-gray-700 mb-6">
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Suspected issue identification
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Step-by-step testing plan
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Note for your mechanic
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Cost estimates
-                  </li>
-                </ul>
-                <button className="w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 transition">
-                  Get Started
-                </button>
+            <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-primary-500 transition">
+              <div className="bg-primary-100 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-6">
+                <TrendingDown className="h-10 w-10 text-primary-600" />
               </div>
-            </Link>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Save Money</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Identify overcharges, unnecessary repairs, and inflated labor rates before you spend a dime.
+              </p>
+            </div>
 
-            {/* Bike Pre-Purchase */}
-            <Link href="/services/bike-purchase">
-              <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all cursor-pointer border-2 border-transparent hover:border-primary-500 h-full transform hover:scale-105">
-                <div className="flex justify-center mb-4">
-                  <Bike className="h-16 w-16 text-primary-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-center text-gray-900 mb-4">
-                  Bike Pre-Purchase
-                </h3>
-                <p className="text-gray-600 text-center mb-6">
-                  Buying a used dirt bike or ATV? We'll analyze videos and tell you what red flags to look for.
-                </p>
-                <div className="bg-primary-50 rounded-lg p-4 mb-6">
-                  <p className="text-3xl font-bold text-center text-primary-600">$59</p>
-                  <p className="text-sm text-center text-gray-600">Per Inspection Report</p>
-                </div>
-                <ul className="space-y-3 text-sm text-gray-700 mb-6">
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Video & photo analysis
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Common issue checklist
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Red flag identification
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    Fair price assessment
-                  </li>
-                </ul>
-                <button className="w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 transition">
-                  Get Started
-                </button>
+            <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-primary-500 transition">
+              <div className="bg-primary-100 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-6">
+                <Clock className="h-10 w-10 text-primary-600" />
               </div>
-            </Link>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Fast Turnaround</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Detailed reports delivered within 24-48 hours so you can make informed decisions quickly.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -198,53 +123,115 @@ export default function Home() {
               Get expert analysis in four simple steps
             </p>
           </div>
+
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-primary-100 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">1</span>
+            <div className="relative">
+              <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-primary-600 h-full">
+                <div className="bg-primary-600 rounded-full h-12 w-12 flex items-center justify-center mb-6">
+                  <span className="text-2xl font-bold text-white">1</span>
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-gray-900">Choose Service</h3>
+                <p className="text-gray-600">Select the service that matches your needs from our three specialized offerings.</p>
               </div>
-              <h3 className="font-bold text-lg mb-2">Choose Service</h3>
-              <p className="text-gray-600 text-sm">Select the service that matches your needs</p>
             </div>
-            <div className="text-center">
-              <div className="bg-primary-100 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">2</span>
+
+            <div className="relative">
+              <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-primary-600 h-full">
+                <div className="bg-primary-600 rounded-full h-12 w-12 flex items-center justify-center mb-6">
+                  <span className="text-2xl font-bold text-white">2</span>
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-gray-900">Submit Information</h3>
+                <p className="text-gray-600">Upload your repair quote, photos, videos, or provide details about your vehicle issue.</p>
               </div>
-              <h3 className="font-bold text-lg mb-2">Submit Details</h3>
-              <p className="text-gray-600 text-sm">Upload your quote, photos, or videos</p>
             </div>
-            <div className="text-center">
-              <div className="bg-primary-100 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">3</span>
+
+            <div className="relative">
+              <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-primary-600 h-full">
+                <div className="bg-primary-600 rounded-full h-12 w-12 flex items-center justify-center mb-6">
+                  <span className="text-2xl font-bold text-white">3</span>
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-gray-900">Expert Review</h3>
+                <p className="text-gray-600">Our master technician analyzes everything with nearly 20 years of industry experience.</p>
               </div>
-              <h3 className="font-bold text-lg mb-2">Expert Analysis</h3>
-              <p className="text-gray-600 text-sm">We review and analyze everything</p>
             </div>
-            <div className="text-center">
-              <div className="bg-primary-100 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">4</span>
+
+            <div className="relative">
+              <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-primary-600 h-full">
+                <div className="bg-primary-600 rounded-full h-12 w-12 flex items-center justify-center mb-6">
+                  <span className="text-2xl font-bold text-white">4</span>
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-gray-900">Receive Report</h3>
+                <p className="text-gray-600">Get a detailed, easy-to-understand report within 24-48 hours with clear recommendations.</p>
               </div>
-              <h3 className="font-bold text-lg mb-2">Get Report</h3>
-              <p className="text-gray-600 text-sm">Receive detailed audit report in 24-48hrs</p>
             </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/services"
+              className="inline-flex items-center px-8 py-4 bg-primary-600 text-white text-lg font-semibold rounded-lg hover:bg-primary-700 transition shadow-lg"
+            >
+              Explore Our Services
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-primary-900 to-primary-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-6">Ready to Protect Yourself?</h2>
+          <p className="text-xl text-primary-100 mb-8 leading-relaxed">
+            Don't let dishonest shops take advantage of you. Get a professional second opinion today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-900 text-lg font-semibold rounded-lg hover:bg-gray-100 transition"
+            >
+              View Services
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary-700 text-white text-lg font-semibold rounded-lg hover:bg-primary-600 transition border-2 border-white"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12 border-t-2 border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <Shield className="h-8 w-8 text-primary-400" />
-              <span className="text-2xl font-bold">Auto Analyst</span>
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <Shield className="h-6 w-6 text-primary-400" />
+                <span className="text-xl font-bold">Auto Analyst</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                Professional vehicle repair analysis and customer advocacy.
+              </p>
             </div>
-            <p className="text-gray-400 mb-2">
-              Your trusted second opinion for vehicle repairs
-            </p>
-            <p className="text-sm text-gray-500 mb-4">
-              Gilroy, California | owner@auto-analyst.com
-            </p>
+            <div>
+              <h3 className="font-bold mb-3">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/services" className="text-gray-400 hover:text-white transition">Services</Link></li>
+                <li><Link href="/about" className="text-gray-400 hover:text-white transition">About</Link></li>
+                <li><Link href="/contact" className="text-gray-400 hover:text-white transition">Contact</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-3">Contact</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>Gilroy, California</li>
+                <li>owner@auto-analyst.com</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center">
             <p className="text-sm text-gray-500">
                2025 Auto Analyst. All rights reserved.
             </p>

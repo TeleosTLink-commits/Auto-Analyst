@@ -16,6 +16,9 @@ export default function About() {
               <Link href="/" className="text-sm font-medium text-gray-300 hover:text-primary-400 transition">
                 Home
               </Link>
+              <Link href="/services" className="text-sm font-medium text-gray-300 hover:text-primary-400 transition">
+                Services
+              </Link>
               <Link href="/about" className="text-sm font-medium text-primary-400 border-b-2 border-primary-400">
                 About
               </Link>
